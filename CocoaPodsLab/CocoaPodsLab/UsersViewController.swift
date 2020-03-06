@@ -21,16 +21,25 @@ class UsersViewController: UIViewController {
     }
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    viewLayout.isFirstCellExcluded = true
+    viewLayout.isLastCellExcluded = true
+    viewLayout.lineSpacing = 5
+    viewLayout.slantingDirection = .downward
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    collectionView.dataSource = self
+    collectionView.delegate = self
+    CollectionViewDelegateSlantedLayout = self
     collectionViewSetup()
     loadUsers()
   }
   
   private func collectionViewSetup() {
     collectionView.collectionViewLayout = viewLayout
+    
   }
   
   private func loadUsers() {
@@ -49,7 +58,7 @@ class UsersViewController: UIViewController {
 
 extension UsersViewController : UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userCell", for: indexPath) as? CollectionViewSlantedCell else {
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userCell", for: indexPath) as? UserCell else {
       fatalError("Unable to downcast cell to CollectionViewSlantedCell")
     }
     let user = users[indexPath.row]
@@ -57,8 +66,9 @@ extension UsersViewController : UICollectionViewDataSource {
     if let layout = collectionView.collectionViewLayout as? CollectionViewSlantedLayout {
       cell.contentView.transform = CGAffineTransform(rotationAngle: layout.slantingAngle)
     }
-//    cell.imageView = UIImage(
-    cell.backgroundColor = .orange
+    
+    cell.configureCell(with: user)
+    cell.backgroundColor = .systemGroupedBackground
     return cell
   }
   
@@ -71,53 +81,29 @@ extension UsersViewController : UICollectionViewDelegate {
   
 }
 
-//
-//
-//extension ViewController: UICollectionViewDataSource {
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return covers.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView,
-//                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-//                            as? CustomCollectionCell else {
-//            fatalError()
-//        }
-//
-//        cell.image = UIImage(named: covers[indexPath.row]["picture"]!)!
-//
-//        if let layout = collectionView.collectionViewLayout as? CollectionViewSlantedLayout {
-//            cell.contentView.transform = CGAffineTransform(rotationAngle: layout.slantingAngle)
-//        }
-//
-//        return cell
-//    }
-//}
-//
-//extension ViewController: CollectionViewDelegateSlantedLayout {
-//
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        NSLog("Did select item at indexPath: [\(indexPath.section)][\(indexPath.row)]")
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView,
-//                        layout collectionViewLayout: CollectionViewSlantedLayout,
-//                        sizeForItemAt indexPath: IndexPath) -> CGFloat {
-//        return collectionViewLayout.scrollDirection == .vertical ? 275 : 325
-//    }
-//}
-//
-//extension ViewController: UIScrollViewDelegate {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        guard let collectionView = collectionView else {return}
-//        guard let visibleCells = collectionView.visibleCells as? [CustomCollectionCell] else {return}
-//        for parallaxCell in visibleCells {
-//            let yOffset = (collectionView.contentOffset.y - parallaxCell.frame.origin.y) / parallaxCell.imageHeight
-//            let xOffset = (collectionView.contentOffset.x - parallaxCell.frame.origin.x) / parallaxCell.imageWidth
-//            parallaxCell.offset(CGPoint(x: xOffset * xOffsetSpeed, y: yOffset * yOffsetSpeed))
-//        }
-//    }
-//}
+
+extension UsersViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let collectionView = collectionView else {return}
+        guard let visibleCells = collectionView.visibleCells as? [UserCell] else {return}
+        for parallaxCell in visibleCells {
+            let yOffset = (collectionView.contentOffset.y - parallaxCell.frame.origin.y) / parallaxCell.imageHeight
+            let xOffset = (collectionView.contentOffset.x - parallaxCell.frame.origin.x) / parallaxCell.imageWidth
+            parallaxCell.offset(CGPoint(x: xOffset * xOffsetSpeed, y: yOffset * yOffsetSpeed))
+        }
+    }
+}
+
+
+extension UsersViewController: CollectionViewDelegateSlantedLayout {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        NSLog("Did select item at indexPath: [\(indexPath.section)][\(indexPath.row)]")
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: CollectionViewSlantedLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGFloat {
+        return collectionViewLayout.scrollDirection == .vertical ? 275 : 325
+    }
+}

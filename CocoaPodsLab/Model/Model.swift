@@ -37,6 +37,9 @@ struct Name: Codable {
     let title: String
     let first: String
     let last: String
+  func fullName() -> String {
+    return "\(title) \(first) \(last)"
+  }
 }
 
 struct Location: Codable {

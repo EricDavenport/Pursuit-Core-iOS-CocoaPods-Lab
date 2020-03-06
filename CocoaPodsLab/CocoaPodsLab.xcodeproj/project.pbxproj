@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,8 @@
 		581D88672412B70500CBDDB6 /* CocoaPodsLabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581D88662412B70500CBDDB6 /* CocoaPodsLabTests.swift */; };
 		581D88722412B73F00CBDDB6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581D88712412B73F00CBDDB6 /* Model.swift */; };
 		581D88752412BA8900CBDDB6 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581D88742412BA8900CBDDB6 /* APIClient.swift */; };
+		58B602B92412C5AF001A5078 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B602B82412C5AF001A5078 /* UserCell.swift */; };
+		58B602BC2412C7BC001A5078 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 58B602BB2412C7BC001A5078 /* ImageKit */; };
 		7484081B87472718374870FF /* Pods_CocoaPodsLab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5AC1EC21A663C6D0F6137DF /* Pods_CocoaPodsLab.framework */; };
 		EA764105F346097140219728 /* Pods_CocoaPodsLabTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03D10219A4B2A6A05F81AB0 /* Pods_CocoaPodsLabTests.framework */; };
 /* End PBXBuildFile section */
@@ -46,6 +48,7 @@
 		581D88712412B73F00CBDDB6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		581D88742412BA8900CBDDB6 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		582D75064CB2C658A2253E94 /* Pods-CocoaPodsLab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoaPodsLab.debug.xcconfig"; path = "Target Support Files/Pods-CocoaPodsLab/Pods-CocoaPodsLab.debug.xcconfig"; sourceTree = "<group>"; };
+		58B602B82412C5AF001A5078 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		C03D10219A4B2A6A05F81AB0 /* Pods_CocoaPodsLabTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocoaPodsLabTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F93807EE546AE4F1CE8094 /* Pods-CocoaPodsLab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoaPodsLab.release.xcconfig"; path = "Target Support Files/Pods-CocoaPodsLab/Pods-CocoaPodsLab.release.xcconfig"; sourceTree = "<group>"; };
 		D5AC1EC21A663C6D0F6137DF /* Pods_CocoaPodsLab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocoaPodsLab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +61,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7484081B87472718374870FF /* Pods_CocoaPodsLab.framework in Frameworks */,
+				58B602BC2412C7BC001A5078 /* ImageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +134,7 @@
 			children = (
 				581D88712412B73F00CBDDB6 /* Model.swift */,
 				581D88742412BA8900CBDDB6 /* APIClient.swift */,
+				58B602B82412C5AF001A5078 /* UserCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,6 +168,9 @@
 			dependencies = (
 			);
 			name = CocoaPodsLab;
+			packageProductDependencies = (
+				58B602BB2412C7BC001A5078 /* ImageKit */,
+			);
 			productName = CocoaPodsLab;
 			productReference = 581D884C2412B6FF00CBDDB6 /* CocoaPodsLab.app */;
 			productType = "com.apple.product-type.application";
@@ -214,6 +222,9 @@
 				Base,
 			);
 			mainGroup = 581D88432412B6FF00CBDDB6;
+			packageReferences = (
+				58B602BA2412C7BC001A5078 /* XCRemoteSwiftPackageReference "ImageKit" */,
+			);
 			productRefGroup = 581D884D2412B6FF00CBDDB6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -315,6 +326,7 @@
 			files = (
 				581D88542412B6FF00CBDDB6 /* UsersViewController.swift in Sources */,
 				581D88502412B6FF00CBDDB6 /* AppDelegate.swift in Sources */,
+				58B602B92412C5AF001A5078 /* UserCell.swift in Sources */,
 				581D88522412B6FF00CBDDB6 /* SceneDelegate.swift in Sources */,
 				581D88752412BA8900CBDDB6 /* APIClient.swift in Sources */,
 				581D88722412B73F00CBDDB6 /* Model.swift in Sources */,
@@ -588,6 +600,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		58B602BA2412C7BC001A5078 /* XCRemoteSwiftPackageReference "ImageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/ImageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		58B602BB2412C7BC001A5078 /* ImageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 58B602BA2412C7BC001A5078 /* XCRemoteSwiftPackageReference "ImageKit" */;
+			productName = ImageKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 581D88442412B6FF00CBDDB6 /* Project object */;
 }

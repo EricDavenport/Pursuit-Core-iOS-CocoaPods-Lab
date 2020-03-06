@@ -20,20 +20,66 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1Qq-OY-CE3">
-                                    <size key="itemSize" width="287" height="232"/>
+                                    <size key="itemSize" width="318" height="279"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="si8-F8-Qd3">
-                                        <rect key="frame" x="63.5" y="0.0" width="287" height="232"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="userCell" id="si8-F8-Qd3" customClass="UserCell" customModule="CocoaPodsLab" customModuleProvider="target">
+                                        <rect key="frame" x="48" y="0.0" width="318" height="279"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1eM-lb-tEf" customClass="CollectionViewSlantedCell" customModule="CollectionViewSlantedLayout">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="232"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="318" height="279"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9d8-wj-3cK">
+                                                    <rect key="frame" x="0.0" y="1" width="318" height="276.5"/>
+                                                </imageView>
+                                                <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kc4-Tk-SSh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="318" height="279"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL LABEL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEk-zg-x6v">
+                                                            <rect key="frame" x="35" y="250" width="263" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME LABEL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRk-Hq-FcE">
+                                                            <rect key="frame" x="35" y="221" width="263" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="iEk-zg-x6v" secondAttribute="trailing" constant="20" id="0ep-nw-P7a"/>
+                                                        <constraint firstAttribute="bottom" secondItem="iEk-zg-x6v" secondAttribute="bottom" constant="8" id="6Xm-1f-BQG"/>
+                                                        <constraint firstItem="iEk-zg-x6v" firstAttribute="leading" secondItem="kc4-Tk-SSh" secondAttribute="leading" constant="35" id="VTx-KE-bUv"/>
+                                                        <constraint firstItem="iEk-zg-x6v" firstAttribute="top" secondItem="FRk-Hq-FcE" secondAttribute="bottom" constant="8" id="iSY-7H-Gbr"/>
+                                                        <constraint firstItem="FRk-Hq-FcE" firstAttribute="leading" secondItem="kc4-Tk-SSh" secondAttribute="leading" constant="35" id="kmM-tq-Zaf"/>
+                                                        <constraint firstAttribute="trailing" secondItem="FRk-Hq-FcE" secondAttribute="trailing" constant="20" id="msh-2q-fg0"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="kc4-Tk-SSh" secondAttribute="trailing" constant="0.01" id="1cW-Qs-VnR"/>
+                                                <constraint firstAttribute="bottom" secondItem="9d8-wj-3cK" secondAttribute="bottom" constant="0.01" id="2ia-5C-tlm"/>
+                                                <constraint firstAttribute="bottom" secondItem="kc4-Tk-SSh" secondAttribute="bottom" constant="0.01" id="Kwv-zI-lSP"/>
+                                                <constraint firstItem="kc4-Tk-SSh" firstAttribute="leading" secondItem="1eM-lb-tEf" secondAttribute="leading" constant="0.01" id="ZpX-d6-vCE"/>
+                                                <constraint firstItem="9d8-wj-3cK" firstAttribute="leading" secondItem="1eM-lb-tEf" secondAttribute="leading" constant="0.01" id="f9t-AZ-KvH"/>
+                                                <constraint firstItem="9d8-wj-3cK" firstAttribute="top" secondItem="1eM-lb-tEf" secondAttribute="top" constant="0.01" id="fz1-Pu-OHb"/>
+                                                <constraint firstItem="kc4-Tk-SSh" firstAttribute="top" secondItem="1eM-lb-tEf" secondAttribute="top" constant="0.01" id="ghU-TZ-0ur"/>
+                                                <constraint firstAttribute="trailing" secondItem="9d8-wj-3cK" secondAttribute="trailing" constant="0.01" id="y0t-cx-6ZS"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="287" height="232"/>
+                                        <size key="customSize" width="318" height="279"/>
+                                        <connections>
+                                            <outlet property="emailLabel" destination="iEk-zg-x6v" id="SiA-4S-oBs"/>
+                                            <outlet property="nameLabel" destination="FRk-Hq-FcE" id="4bF-5B-AfW"/>
+                                            <outlet property="userImageView" destination="9d8-wj-3cK" id="zeV-MD-XbG"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -56,4 +102,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="photo.fill" catalog="system" width="64" height="46"/>
+    </resources>
 </document>
