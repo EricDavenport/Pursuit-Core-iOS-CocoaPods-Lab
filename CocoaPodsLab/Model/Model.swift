@@ -47,6 +47,9 @@ struct Location: Codable {
     let city: String
     let state: String
     let postcode: String
+  func fullAddress() -> String {
+    return "\(street.number) \(street.name)\n\(city), \(state) \(postcode)"
+  }
     
     enum CodingKeys: String, CodingKey {
         case street, city, state, postcode

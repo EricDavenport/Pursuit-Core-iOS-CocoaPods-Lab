@@ -26,7 +26,7 @@ class UserCell: CollectionViewSlantedCell {
   public func configureCell(with user: User) {
     emailLabel.text = user.email
     nameLabel.text = user.name.fullName()
-      userImageView.getImage(with: user.picture.large) { [weak self] (result) in
+    userImageView.getImage(with: user.picture.medium) { [weak self] (result) in
       switch result {
       case .failure(let error):
         print("unable to load photo: \(error.localizedDescription)")

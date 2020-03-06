@@ -36,7 +36,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9d8-wj-3cK">
                                                     <rect key="frame" x="0.0" y="1" width="318" height="276.5"/>
                                                 </imageView>
-                                                <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kc4-Tk-SSh">
+                                                <view alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kc4-Tk-SSh">
                                                     <rect key="frame" x="0.0" y="0.0" width="318" height="279"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL LABEL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEk-zg-x6v">

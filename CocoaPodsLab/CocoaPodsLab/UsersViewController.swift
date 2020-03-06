@@ -32,7 +32,7 @@ class UsersViewController: UIViewController {
     super.viewDidLoad()
     collectionView.dataSource = self
     collectionView.delegate = self
-    CollectionViewDelegateSlantedLayout = self
+    
     collectionViewSetup()
     loadUsers()
   }
@@ -78,7 +78,9 @@ extension UsersViewController : UICollectionViewDataSource {
 }
 
 extension UsersViewController : UICollectionViewDelegate {
-  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    print("Selected row \(indexPath.row)/nUser: \(users[indexPath.row].name.fullName())")
+  }
 }
 
 
@@ -97,9 +99,11 @@ extension UsersViewController: UIScrollViewDelegate {
 
 extension UsersViewController: CollectionViewDelegateSlantedLayout {
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        NSLog("Did select item at indexPath: [\(indexPath.section)][\(indexPath.row)]")
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        NSLog("Did select item at indexPath: [\(indexPath.section)][\(indexPath.row)]")
+//      print("Selected row \(indexPath.row)/nUser: \(users[indexPath.row].name.fullName())")
+//
+//    }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: CollectionViewSlantedLayout,
